@@ -1,6 +1,5 @@
-package ua.rozborsky.web.ua.rozborsky.web.interfaces;
+package ua.rozborsky.web.interfaces;
 
-import java.math.BigDecimal;
 
 /**
  * Created by roman on 18.11.2016.

@@ -7,6 +7,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.springframework.version>4.3.1.RELEASE</org.springframework.version>
+        <org.hibernate>5.0.0.CR1</org.hibernate>
     </properties>
 
     <groupId>rozborsky</groupId>
@@ -103,6 +104,18 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>5.2.4.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${org.hibernate}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1208.jre7</version>
         </dependency>
     </dependencies>
 </project>

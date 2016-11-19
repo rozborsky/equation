@@ -1,0 +1,9 @@
+CREATE TABLE "values" (
+    id int4 NOT NULL,
+    a float8,
+    b float8,
+    c float8,
+    x1 float8,
+    x2 float8,
+    PRIMARY KEY (id)
+)

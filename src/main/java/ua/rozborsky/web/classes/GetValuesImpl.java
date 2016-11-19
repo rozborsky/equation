@@ -1,7 +1,7 @@
 package ua.rozborsky.web.classes;
 
 import org.springframework.stereotype.Component;
-import ua.rozborsky.web.ua.rozborsky.web.interfaces.GetValues;
+import ua.rozborsky.web.interfaces.GetValues;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;

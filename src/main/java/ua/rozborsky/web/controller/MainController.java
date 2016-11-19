@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ua.rozborsky.web.classes.GetValuesImpl;
-import ua.rozborsky.web.ua.rozborsky.web.interfaces.Equation;
-import ua.rozborsky.web.ua.rozborsky.web.interfaces.GetValues;
+import ua.rozborsky.web.interfaces.DAO;
+import ua.rozborsky.web.interfaces.Equation;
+import ua.rozborsky.web.interfaces.GetValues;
 
 import javax.validation.Valid;
 
@@ -26,6 +27,9 @@ public class MainController {
     @Autowired
     Equation equation;
 
+    @Autowired
+    DAO dao;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView main() {
 
@@ -39,7 +43,7 @@ public class MainController {
         if (bindingResult.hasErrors()) {
             return new ModelAndView("main");
         }
-        String result = calculateX(getValues);
+        String result = dataProcessing(getValues);
 
         return new ModelAndView("result", "result", result);
     }
@@ -50,12 +54,13 @@ public class MainController {
         return "result";
     }
 
-    private String calculateX(GetValuesImpl getValues) {
+    private String dataProcessing(GetValuesImpl getValues) {
         String result = "невозможно вычислить x";
         equation.setValues(getValues);
 
-        if (equation.canCalculate()) {
+        if (equation.canCalculate() && getValues.getA() != 0) {
             equation.calculateX();
+            dao.saveValues(equation);
             result = equation.getValues();
         }
         return result;
