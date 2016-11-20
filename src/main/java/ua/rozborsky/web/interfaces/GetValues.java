@@ -1,6 +1,5 @@
 package ua.rozborsky.web.interfaces;
 
-
 /**
  * Created by roman on 18.11.2016.
  */

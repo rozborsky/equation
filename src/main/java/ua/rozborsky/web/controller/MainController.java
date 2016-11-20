@@ -63,6 +63,7 @@ public class MainController {
             dao.saveValues(equation);
             result = equation.getValues();
         }
+
         return result;
     }
 }
